@@ -1,0 +1,3 @@
+*.svg
+*.data*
+call_graph.txt

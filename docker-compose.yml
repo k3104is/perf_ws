@@ -1,0 +1,9 @@
+services:
+  perf_ws:
+    build: .
+    image: 'i_perf_ws'
+    container_name: 'c_perf_ws'
+    working_dir: '/workdir'
+    tty: true
+    volumes:
+      - ./workdir:/workdir
