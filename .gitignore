@@ -1,3 +1,5 @@
 *.svg
 *.data*
 call_graph.txt
+*.out
+*.log
