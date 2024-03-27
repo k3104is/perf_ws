@@ -3,7 +3,7 @@ FROM ubuntu:22.04
 
 RUN apt-get update -y
 RUN apt-get install -y \
-  linux-tools-generic valgrind \
+  linux-tools-generic valgrind stress psmisc strace pciutils usbutils\
   build-essential \
   vim git
 RUN rm /usr/bin/perf
