@@ -6,7 +6,7 @@ RUN apt-get install -y \
   valgrind stress psmisc strace pciutils usbutils \
   build-essential \
   hdparm \
-  vim git
+  vim git cron
 
 # Linux crisis tool package
 RUN apt-get install -y \
@@ -25,5 +25,8 @@ RUN apt-get install -y \
   tiptop \
   msr-tools
 
-# RUN rm /usr/bin/perf
-# RUN ln -s /usr/lib/linux-tools/5.15.0-105-generic/perf /usr/bin/perf
+COPY ./cfg/etc/default/sysstat /etc/default/sysstat
+COPY ./cfg/etc/cron.d/sysstat /etc/cron.d/sysstat
+
+RUN service sysstat restart
+RUN service cron restart

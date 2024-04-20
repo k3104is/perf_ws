@@ -9,3 +9,7 @@ services:
       - ./workdir:/workdir
     devices:
       - /dev/nvme0n1:/dev/nvme0n1
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
