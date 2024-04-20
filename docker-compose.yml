@@ -7,3 +7,5 @@ services:
     tty: true
     volumes:
       - ./workdir:/workdir
+    devices:
+      - /dev/nvme0n1:/dev/nvme0n1

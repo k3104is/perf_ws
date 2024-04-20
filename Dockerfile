@@ -3,9 +3,27 @@ FROM ubuntu:22.04
 
 RUN apt-get update
 RUN apt-get install -y \
-  linux-tools-generic valgrind stress psmisc strace pciutils usbutils \
+  valgrind stress psmisc strace pciutils usbutils \
   build-essential \
-  sysstat \
+  hdparm \
   vim git
-RUN rm /usr/bin/perf
-RUN ln -s /usr/lib/linux-tools/5.15.0-101-generic/perf /usr/bin/perf
+
+# Linux crisis tool package
+RUN apt-get install -y \
+  procps \
+  util-linux \
+  sysstat \
+  iproute2 \
+  numactl \
+  linux-tools-6.5.0-28-generic \
+  bpfcc-tools \
+  bpftrace \
+  perf-tools-unstable \
+  trace-cmd \
+  nicstat \
+  ethtool \
+  tiptop \
+  msr-tools
+
+# RUN rm /usr/bin/perf
+# RUN ln -s /usr/lib/linux-tools/5.15.0-105-generic/perf /usr/bin/perf
