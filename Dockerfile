@@ -15,7 +15,8 @@ RUN apt-get install -y \
   sysstat \
   iproute2 \
   numactl \
-  linux-tools-6.5.0-28-generic \
+  tcpdump \
+  linux-tools-common \
   bpfcc-tools \
   bpftrace \
   perf-tools-unstable \
@@ -23,7 +24,10 @@ RUN apt-get install -y \
   nicstat \
   ethtool \
   tiptop \
+  cpuid \
   msr-tools
+
+RUN ln -s $(find /usr/lib -type f | grep -E perf$) /usr/local/bin/
 
 COPY ./cfg/etc/default/sysstat /etc/default/sysstat
 COPY ./cfg/etc/cron.d/sysstat /etc/cron.d/sysstat
