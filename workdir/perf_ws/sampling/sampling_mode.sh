@@ -1,6 +1,11 @@
-#!/bin/bash
+#!bin/bash
 
-perf record -g -o perf.data.g dd if=/dev/zero of=/dev/null count=1000000
-perf report -i perf.data.g --stdio > call_graph.txt
+OUT_DIR="./tmp"
+OUT_FILE="${OUT_DIR}/proc.data"
+STACK_FILE="${OUT_DIR}/proc.stack"
+SVG_FILE="${OUT_DIR}/proc.svg"
+CMD="dd if=/dev/zero of=/dev/null count=1000000"
 
-perf script -i perf.data.g | ./stackcollapse-perf.pl | ./flamegraph.pl > flamegraph.svg
+perf record -F 99 -g -o ${OUT_FILE} ${CMD}
+perf script -i ${OUT_FILE} > ${STACK_FILE}
+perf script -i ${OUT_FILE} | ${STACKCOLLAPSE_PATH} | ${FLAMEGRAPH_PATH} > ${SVG_FILE}
