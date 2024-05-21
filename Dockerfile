@@ -23,9 +23,9 @@ RUN apt-get install -y \
   trace-cmd \
   nicstat \
   ethtool \
-  tiptop \
-  cpuid \
-  msr-tools
+  tiptop
+  # cpuid \
+  # msr-tools
 
 RUN ln -s $(find /usr/lib -type f | grep -E perf$) /usr/local/bin/
 
@@ -34,3 +34,6 @@ COPY ./cfg/etc/cron.d/sysstat /etc/cron.d/sysstat
 
 RUN service sysstat restart
 RUN service cron restart
+
+RUN apt-get install -y \
+  hwloc

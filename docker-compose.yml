@@ -13,3 +13,5 @@ services:
       - SYS_PTRACE
     security_opt:
       - seccomp:unconfined
+    privileged: true
+    pid: "host"
