@@ -56,7 +56,7 @@ RUN git clone https://github.com/iovisor/bcc.git \
   && make install \
   && cp -r bcc-python3/bcc/* /usr/lib/python3/dist-packages/bcc/
 
-COPY ./cfg/export.sh
+COPY ./cfg/export.sh /
 RUN echo "source /export.sh" >> /root/.bashrc
 # ENV bcctools=/usr/share/bcc/tools
 # ENV bccexamples=/usr/share/bcc/examples
