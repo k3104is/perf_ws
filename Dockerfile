@@ -33,6 +33,7 @@ RUN apt-get install -y \
   tcpdump \
   linux-tools-common \
   linux-tools-$(uname -r) \
+  linux-headers-$(uname -r) \
   bpfcc-tools \
   bpftrace \
   perf-tools-unstable \
