@@ -1,6 +1,12 @@
+version: '3'
+
 services:
   perf_ws:
-    build: .
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+      args:
+        DISTRO_VER: ${DISTRO_VER}
     image: 'i_perf_ws'
     container_name: 'c_perf_ws'
     working_dir: '/workdir'

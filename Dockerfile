@@ -1,5 +1,6 @@
+ARG DISTRO_VER
 # --- builder ---
-FROM ubuntu:24.04 as builder
+FROM ubuntu:${DISTRO_VER} as builder
 
 RUN apt update && \
   apt install -y make gcc libelf-dev clang llvm git && \
@@ -14,7 +15,7 @@ RUN git clone https://github.com/iovisor/bcc.git && \
 
 
 # --- stage ---
-FROM ubuntu:24.04
+FROM ubuntu:${DISTRO_VER}
 
 RUN apt update && \
   apt-get install -y \

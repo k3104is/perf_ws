@@ -4,3 +4,4 @@ call_graph.txt
 *.out
 *.log
 **/tmp/*
+.env
